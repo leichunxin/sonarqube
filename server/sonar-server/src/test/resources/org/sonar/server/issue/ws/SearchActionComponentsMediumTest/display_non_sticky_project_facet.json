@@ -12,8 +12,7 @@
     {
       "key": "82fd47d4-b650-4037-80bc-7b112bd4eac2",
       "component": "MyComponent1",
-      "project": "MyProject1",
-      "rule": "xoo:x1"
+      "project": "MyProject1"
     }
   ],
   "facets": [

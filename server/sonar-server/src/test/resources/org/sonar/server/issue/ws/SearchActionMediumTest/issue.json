@@ -15,7 +15,11 @@
         "key": "MyProject",
         "enabled": true
       },
-      "rule": "xoo:x1",
+      "rule": {
+        "key": "xoo:x1",
+        "name": "Rule name",
+        "status": "READY"
+      },
       "status": "OPEN",
       "resolution": "OPEN",
       "severity": "MAJOR",

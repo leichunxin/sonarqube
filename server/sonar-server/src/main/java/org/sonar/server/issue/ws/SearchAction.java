@@ -19,8 +19,10 @@
  */
 package org.sonar.server.issue.ws;
 
+import com.google.common.base.Function;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.io.Resources;
@@ -33,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.CheckForNull;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import org.apache.commons.lang.BooleanUtils;
 import org.sonar.api.i18n.I18n;
@@ -65,6 +68,7 @@ import org.sonar.server.issue.index.IssueIndex;
 import org.sonar.server.rule.Rule;
 import org.sonar.server.rule.RuleService;
 import org.sonar.server.user.UserSession;
+
 import static com.google.common.collect.Lists.newArrayList;
 import static com.google.common.collect.Maps.newHashMap;
 import static com.google.common.collect.Sets.newHashSet;
@@ -357,9 +361,17 @@ public class SearchAction implements IssuesWsAction {
 
     Map<String, ActionPlan> actionPlanByKeys = getActionPlanByKeys(actionPlanKeys);
 
-    writeIssues(result, commentsByIssues, usersByLogin, actionPlanByKeys, componentsByUuid, projectsByComponentUuid,
+    List<Rule> rules = ruleService.getByKeys(ruleKeys);
+    Map<RuleKey, Rule> rulesByKeys = Maps.uniqueIndex(rules, new Function<Rule, RuleKey>() {
+      @Override
+      public RuleKey apply(@Nonnull Rule rule) {
+        return rule.key();
+      }
+    });
+
+    writeIssues(result, commentsByIssues, usersByLogin, actionPlanByKeys, componentsByUuid, projectsByComponentUuid, rulesByKeys,
       request.paramAsStrings(EXTRA_FIELDS_PARAM), json);
-    writeRules(json, !request.mandatoryParamAsBoolean(IssueFilterParameters.HIDE_RULES) ? ruleService.getByKeys(ruleKeys) : Collections.<Rule>emptyList());
+    writeRules(json, !request.mandatoryParamAsBoolean(IssueFilterParameters.HIDE_RULES) ? rules : Collections.<Rule>emptyList());
     writeUsers(json, usersByLogin);
     writeActionPlans(json, actionPlanByKeys.values());
     writeLanguages(json);
@@ -485,11 +497,12 @@ public class SearchAction implements IssuesWsAction {
 
   private void writeIssues(SearchResult<IssueDoc> result, Multimap<String, DefaultIssueComment> commentsByIssues, Map<String, User> usersByLogin,
     Map<String, ActionPlan> actionPlanByKeys,
-    Map<String, ComponentDto> componentsByUuid, Map<String, ComponentDto> projectsByComponentUuid, @Nullable List<String> extraFields, JsonWriter json) {
+    Map<String, ComponentDto> componentsByUuid, Map<String, ComponentDto> projectsByComponentUuid, Map<RuleKey, Rule> rulesByKeys, @Nullable List<String> extraFields,
+    JsonWriter json) {
     json.name("issues").beginArray();
 
     for (IssueDoc issue : result.getDocs()) {
-      issueWriter.write(json, issue, usersByLogin, componentsByUuid, projectsByComponentUuid, commentsByIssues, actionPlanByKeys, extraFields);
+      issueWriter.write(json, issue, usersByLogin, componentsByUuid, projectsByComponentUuid, commentsByIssues, actionPlanByKeys, rulesByKeys.get(issue.ruleKey()), extraFields);
     }
 
     json.endArray();

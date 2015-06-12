@@ -8,7 +8,9 @@
       "project": {
         "key": "MyProject"
       },
-      "rule": "xoo:x1",
+      "rule": {
+        "key": "xoo:x1"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "debt": "10min",

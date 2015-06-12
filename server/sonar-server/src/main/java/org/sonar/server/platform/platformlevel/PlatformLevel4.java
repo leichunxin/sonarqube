@@ -271,6 +271,7 @@ import org.sonar.server.rule.RuleService;
 import org.sonar.server.rule.RuleUpdater;
 import org.sonar.server.rule.ws.ActiveRuleCompleter;
 import org.sonar.server.rule.ws.RepositoriesAction;
+import org.sonar.server.rule.ws.RuleJsonWriter;
 import org.sonar.server.rule.ws.RuleMapping;
 import org.sonar.server.rule.ws.RulesWs;
 import org.sonar.server.rule.ws.TagsAction;
@@ -472,6 +473,7 @@ public class PlatformLevel4 extends PlatformLevel {
       org.sonar.server.rule.ws.DeleteAction.class,
       TagsAction.class,
       RuleMapping.class,
+      RuleJsonWriter.class,
       ActiveRuleCompleter.class,
       RepositoriesAction.class,
       org.sonar.server.rule.ws.AppAction.class,

@@ -72,6 +72,7 @@ import org.sonar.server.issue.filter.IssueFilterParameters;
 import org.sonar.server.issue.filter.IssueFilterService;
 import org.sonar.server.issue.ws.IssueComponentHelper;
 import org.sonar.server.issue.ws.IssueJsonWriter;
+import org.sonar.server.rule.RuleService;
 import org.sonar.server.search.QueryContext;
 import org.sonar.server.user.UserSession;
 import org.sonar.server.user.index.UserIndex;
@@ -111,6 +112,7 @@ public class InternalRubyIssueService {
   private final IssueComponentHelper issueComponentHelper;
   private final UserIndex userIndex;
   private final DbClient dbClient;
+  private final RuleService ruleService;
   private final UserSession userSession;
 
   public InternalRubyIssueService(
@@ -120,7 +122,7 @@ public class InternalRubyIssueService {
     IssueChangelogService changelogService, ActionPlanService actionPlanService,
     ResourceDao resourceDao, ActionService actionService,
     IssueFilterService issueFilterService, IssueBulkChangeService issueBulkChangeService,
-    IssueJsonWriter issueWriter, IssueComponentHelper issueComponentHelper, UserIndex userIndex, DbClient dbClient,
+    IssueJsonWriter issueWriter, IssueComponentHelper issueComponentHelper, UserIndex userIndex, DbClient dbClient, RuleService ruleService,
     UserSession userSession) {
     this.issueService = issueService;
     this.issueQueryService = issueQueryService;
@@ -135,6 +137,7 @@ public class InternalRubyIssueService {
     this.issueComponentHelper = issueComponentHelper;
     this.userIndex = userIndex;
     this.dbClient = dbClient;
+    this.ruleService = ruleService;
     this.userSession = userSession;
   }
 
@@ -737,6 +740,7 @@ public class InternalRubyIssueService {
         projectsByComponentUuid,
         ImmutableMultimap.<String, DefaultIssueComment>of(),
         ImmutableMap.<String, ActionPlan>of(),
+        ruleService.getNonNullByKey(issue.ruleKey()),
         ImmutableList.of(IssueJsonWriter.ACTIONS_EXTRA_FIELD, IssueJsonWriter.TRANSITIONS_EXTRA_FIELD));
       json.endObject().close();
     } finally {

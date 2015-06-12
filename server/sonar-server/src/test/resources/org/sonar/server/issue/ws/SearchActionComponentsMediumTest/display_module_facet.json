@@ -20,8 +20,7 @@
       },
       "project": {
         "key": "MyProject"
-      },
-      "rule": "xoo:x1"
+      }
     }
   ],
   "facets": [

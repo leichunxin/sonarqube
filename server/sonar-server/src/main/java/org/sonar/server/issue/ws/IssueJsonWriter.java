@@ -42,6 +42,8 @@ import org.sonar.api.utils.text.JsonWriter;
 import org.sonar.core.component.ComponentDto;
 import org.sonar.markdown.Markdown;
 import org.sonar.server.component.ws.ComponentJsonWriter;
+import org.sonar.server.rule.Rule;
+import org.sonar.server.rule.ws.RuleJsonWriter;
 import org.sonar.server.user.UserSession;
 import org.sonar.server.user.ws.UserJsonWriter;
 
@@ -60,18 +62,22 @@ public class IssueJsonWriter {
   private final UserJsonWriter userWriter;
   private final IssueActionsWriter actionsWriter;
   private final ComponentJsonWriter componentWriter;
+  private final RuleJsonWriter ruleJsonWriter;
 
-  public IssueJsonWriter(I18n i18n, Durations durations, UserSession userSession, UserJsonWriter userWriter, IssueActionsWriter actionsWriter, ComponentJsonWriter componentWriter) {
+  public IssueJsonWriter(I18n i18n, Durations durations, UserSession userSession, UserJsonWriter userWriter, IssueActionsWriter actionsWriter, ComponentJsonWriter componentWriter,
+    RuleJsonWriter ruleJsonWriter) {
     this.i18n = i18n;
     this.durations = durations;
     this.userSession = userSession;
     this.userWriter = userWriter;
     this.actionsWriter = actionsWriter;
     this.componentWriter = componentWriter;
+    this.ruleJsonWriter = ruleJsonWriter;
   }
 
   public void write(JsonWriter json, Issue issue, Map<String, User> usersByLogin, Map<String, ComponentDto> componentsByUuid,
-    Map<String, ComponentDto> projectsByComponentUuid, Multimap<String, DefaultIssueComment> commentsByIssues, Map<String, ActionPlan> actionPlanByKeys, List<String> extraFields) {
+    Map<String, ComponentDto> projectsByComponentUuid, Multimap<String, DefaultIssueComment> commentsByIssues, Map<String, ActionPlan> actionPlanByKeys, Rule rule,
+    List<String> extraFields) {
     json.beginObject();
 
     String actionPlanKey = issue.actionPlanKey();
@@ -90,7 +96,6 @@ public class IssueJsonWriter {
       .prop("key", issue.key())
       // Only used for the compatibility with the Issues Java WS Client <= 4.4 used by Eclipse
       .prop("componentId", file != null ? file.getId() : null)
-      .prop("rule", issue.ruleKey().toString())
       .prop("status", issue.status())
       .prop("resolution", issue.resolution())
       .prop("severity", issue.severity())
@@ -126,6 +131,9 @@ public class IssueJsonWriter {
       json.name("subProject");
       componentWriter.write(json, subProject);
     }
+
+    json.name("rule");
+    ruleJsonWriter.write(json, rule);
 
     writeTags(issue, json);
     writeIssueComments(commentsByIssues.get(issue.key()), usersByLogin, json);

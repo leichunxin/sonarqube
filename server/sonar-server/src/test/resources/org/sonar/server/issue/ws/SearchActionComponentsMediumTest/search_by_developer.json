@@ -10,7 +10,6 @@
       "project": {
         "key": "MyProject"
       },
-      "rule": "xoo:x1",
       "author": "vader"
     },
     {
@@ -21,7 +20,6 @@
       "project": {
         "key": "MyProject"
       },
-      "rule": "xoo:x1",
       "author": "anakin@skywalker.name"
     }
     

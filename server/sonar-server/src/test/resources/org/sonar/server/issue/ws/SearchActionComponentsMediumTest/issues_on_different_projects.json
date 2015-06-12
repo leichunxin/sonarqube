@@ -8,7 +8,6 @@
       "project": {
         "key": "MyProject"
       },
-      "rule": "xoo:x1",
       "status": "OPEN",
       "resolution": "OPEN",
       "severity": "MAJOR",
@@ -23,7 +22,6 @@
       "project": {
         "key": "MyProject2"
       },
-      "rule": "xoo:x1",
       "status": "OPEN",
       "resolution": "OPEN",
       "severity": "MAJOR",
