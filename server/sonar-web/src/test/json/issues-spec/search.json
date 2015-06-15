@@ -82,7 +82,9 @@
     {
       "key": "a25f1c8e-b473-4255-8483-d44dcc775ea3",
       "componentId": 429,
-      "rule": "squid:S00105",
+      "rule": {
+        "key": "squid:S00105"
+      },
       "status": "CONFIRMED",
       "severity": "MINOR",
       "message": "Replace all tab characters in this file by sequences of white-spaces.",

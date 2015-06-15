@@ -42,7 +42,9 @@
       "component": "org.codehaus.sonar-plugins.xml:sonar-xml-plugin:src/main/java/org/sonar/plugins/xml",
       "componentId": 26177,
       "project": "org.codehaus.sonar-plugins.xml:xml",
-      "rule": "squid:S1228",
+      "rule": {
+        "key": "squid:S1228"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "Add a 'package-info.java' file to document the 'src/main/java/org/sonar/plugins/xml' package",

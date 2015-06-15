@@ -135,7 +135,9 @@
       "component": "org.codehaus.sonar-plugins:sonar-issues-report-plugin:src/main/java/org/sonar/issuesreport/IssuesReportPlugin.java",
       "componentId": 17639,
       "project": "org.codehaus.sonar-plugins:sonar-issues-report-plugin",
-      "rule": "squid:S1161",
+      "rule": {
+        "key": "squid:S1161"
+      },
       "status": "REOPENED",
       "severity": "MINOR",
       "message": "Add the \"@Override\" annotation above this method signature",
@@ -165,7 +167,9 @@
       "component": "org.codehaus.sonar-plugins:sonar-issues-report-plugin:src/main/java/org/sonar/issuesreport/ReportJob.java",
       "componentId": 17640,
       "project": "org.codehaus.sonar-plugins:sonar-issues-report-plugin",
-      "rule": "squid:S1161",
+      "rule": {
+        "key": "squid:S1161"
+      },
       "status": "REOPENED",
       "severity": "MAJOR",
       "message": "Add the \"@Override\" annotation above this method signature",
@@ -196,7 +200,9 @@
       "componentId": 35659,
       "project": "org.codehaus.sonar:sonar",
       "subProject": "org.codehaus.sonar:sonar-server",
-      "rule": "common-java:InsufficientBranchCoverage",
+      "rule": {
+        "key": "common-java:InsufficientBranchCoverage"
+      },
       "status": "REOPENED",
       "severity": "MAJOR",
       "message": "1 more branches need to be covered by unit tests to reach the minimum threshold of 65.0% branch coverage.",
@@ -225,7 +231,9 @@
       "componentId": 27173,
       "project": "com.sonarsource.rpg:rpg",
       "subProject": "com.sonarsource.rpg:rpg-analyzer",
-      "rule": "squid:S1994",
+      "rule": {
+        "key": "squid:S1994"
+      },
       "status": "REOPENED",
       "severity": "MAJOR",
       "message": "This loop's stop condition tests \"isEndOfFile()\" but the incrementer updates \"lineNumber\".",

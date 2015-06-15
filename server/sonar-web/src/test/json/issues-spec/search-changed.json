@@ -82,7 +82,9 @@
     {
       "key": "a25f1c8e-b473-4255-8483-d44dcc775ea3",
       "componentId": 429,
-      "rule": "squid:S00105",
+      "rule": {
+        "key": "squid:S00105"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "Replace all tab characters in this file by sequences of white-spaces.",
@@ -128,7 +130,9 @@
     {
       "key": "1701e4cd-c5a3-4b3f-84a5-7cb03828710b",
       "componentId": 429,
-      "rule": "squid:S1118",
+      "rule": {
+        "key": "squid:S1118"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "message": "Add a private constructor to hide the implicit public one.",
@@ -175,7 +179,9 @@
     {
       "key": "6827ef98-3f3f-4cd8-82ad-185d1d7bfa6f",
       "componentId": 429,
-      "rule": "squid:S106",
+      "rule": {
+        "key": "squid:S106"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "message": "Replace this usage of System.out or System.err by a logger.",
@@ -222,7 +228,9 @@
     {
       "key": "aba980e2-a38a-469a-8c5c-71d188378153",
       "componentId": 430,
-      "rule": "squid:S00105",
+      "rule": {
+        "key": "squid:S00105"
+      },
       "status": "OPEN",
       "severity": "MINOR",
       "message": "Replace all tab characters in this file by sequences of white-spaces.",
@@ -268,7 +276,9 @@
     {
       "key": "0433a3d9-3e14-4bd3-9ea8-32ab38035762",
       "componentId": 430,
-      "rule": "squid:S1118",
+      "rule": {
+        "key": "squid:S1118"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "message": "Add a private constructor to hide the implicit public one.",
@@ -315,7 +325,9 @@
     {
       "key": "7b24ce49-bb6a-42fd-b29b-a27d962235a6",
       "componentId": 430,
-      "rule": "squid:S1186",
+      "rule": {
+        "key": "squid:S1186"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "message": "Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.",
@@ -362,7 +374,9 @@
     {
       "key": "c8f484ef-4d85-442c-b6a4-5e9e1ea460e6",
       "componentId": 430,
-      "rule": "squid:RightCurlyBraceStartLineCheck",
+      "rule": {
+        "key": "squid:RightCurlyBraceStartLineCheck"
+      },
       "status": "OPEN",
       "severity": "MINOR",
       "message": "Move this closing curly brace to the next line.",
@@ -409,7 +423,9 @@
     {
       "key": "ee4f6b6e-2ae7-46c5-8191-4c38d0e137ca",
       "componentId": 431,
-      "rule": "squid:S00105",
+      "rule": {
+        "key": "squid:S00105"
+      },
       "status": "OPEN",
       "severity": "MINOR",
       "message": "Replace all tab characters in this file by sequences of white-spaces.",
@@ -455,7 +471,9 @@
     {
       "key": "4bd53abf-f772-4882-8bb3-971bb5a7ef30",
       "componentId": 431,
-      "rule": "squid:S1068",
+      "rule": {
+        "key": "squid:S1068"
+      },
       "status": "OPEN",
       "severity": "MINOR",
       "message": "Remove this unused \"s\" private field.",
@@ -502,7 +520,9 @@
     {
       "key": "3a2281cc-7e76-44d3-b352-4cd5b71b6d41",
       "componentId": 431,
-      "rule": "squid:UnusedPrivateMethod",
+      "rule": {
+        "key": "squid:UnusedPrivateMethod"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "message": "Private method 'foo' is never used.",
@@ -549,7 +569,9 @@
     {
       "key": "4077068b-b640-418b-8327-796f90164d31",
       "componentId": 431,
-      "rule": "squid:S1481",
+      "rule": {
+        "key": "squid:S1481"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "message": "Remove this unused \"i\" local variable.",
@@ -596,7 +618,9 @@
     {
       "key": "9f4035ea-2dd5-4481-a5ea-9f5caae5813e",
       "componentId": 431,
-      "rule": "squid:S1481",
+      "rule": {
+        "key": "squid:S1481"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "message": "Remove this unused \"b\" local variable.",
@@ -643,7 +667,9 @@
     {
       "key": "03d05bcb-0e6d-4a0d-a9e3-083a8033b90b",
       "componentId": 433,
-      "rule": "squid:S00105",
+      "rule": {
+        "key": "squid:S00105"
+      },
       "status": "OPEN",
       "severity": "MINOR",
       "message": "Replace all tab characters in this file by sequences of white-spaces.",
@@ -689,7 +715,9 @@
     {
       "key": "d41ae33c-c1b0-4ca3-97ae-d80dea0eca92",
       "componentId": 433,
-      "rule": "squid:S1118",
+      "rule": {
+        "key": "squid:S1118"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "message": "Add a private constructor to hide the implicit public one.",
@@ -736,7 +764,9 @@
     {
       "key": "9a04630f-2560-41ab-a547-5e427df971a8",
       "componentId": 433,
-      "rule": "squid:S1481",
+      "rule": {
+        "key": "squid:S1481"
+      },
       "status": "OPEN",
       "severity": "MAJOR",
       "message": "Remove this unused \"i\" local variable.",

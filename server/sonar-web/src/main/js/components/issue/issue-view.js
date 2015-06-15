@@ -226,7 +226,7 @@ define([
       if (Workspace == null) {
         Workspace = require('components/workspace/main');
       }
-      var ruleKey = this.model.get('rule');
+      var ruleKey = this.model.get('rule').key;
       Workspace.openRule({ key: ruleKey });
     },
 

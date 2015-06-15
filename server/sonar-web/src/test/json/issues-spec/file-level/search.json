@@ -145,7 +145,9 @@
         "name": "SonarQube :: Plugin API",
         "longName": "SonarQube :: Plugin API"
       },
-      "rule": "common-java:DuplicatedBlocks",
+      "rule": {
+        "key": "common-java:DuplicatedBlocks"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "1 duplicated blocks of code.",
@@ -181,7 +183,9 @@
         "name": "SonarQube :: Plugin API",
         "longName": "SonarQube :: Plugin API"
       },
-      "rule": "common-java:InsufficientBranchCoverage",
+      "rule": {
+        "key": "common-java:InsufficientBranchCoverage"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "1 more branches need to be covered by unit tests to reach the minimum threshold of 65.0% branch coverage.",
@@ -204,7 +208,9 @@
       },
       "project": "org.codehaus.sonar:sonar",
       "subProject": "org.codehaus.sonar:sonar-plugin-api",
-      "rule": "squid:S1142",
+      "rule": {
+        "key": "squid:S1142"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "Reduce the number of returns of this method 7, down to the maximum allowed 5.",
@@ -229,7 +235,9 @@
       },
       "project": "org.codehaus.sonar:sonar",
       "subProject": "org.codehaus.sonar:sonar-plugin-api",
-      "rule": "squid:MethodCyclomaticComplexity",
+      "rule": {
+        "key": "squid:MethodCyclomaticComplexity"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "The Cyclomatic Complexity of this method \"value\" is 22 which is greater than 10 authorized.",
@@ -254,7 +262,9 @@
       },
       "project": "org.codehaus.sonar:sonar",
       "subProject": "org.codehaus.sonar:sonar-plugin-api",
-      "rule": "squid:S1151",
+      "rule": {
+        "key": "squid:S1151"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "Reduce this switch case number of lines from 8 to at most 5, for example by extracting code into methods.",
@@ -279,7 +289,9 @@
       },
       "project": "org.codehaus.sonar:sonar",
       "subProject": "org.codehaus.sonar:sonar-plugin-api",
-      "rule": "squid:MethodCyclomaticComplexity",
+      "rule": {
+        "key": "squid:MethodCyclomaticComplexity"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "The Cyclomatic Complexity of this method \"getVariation\" is 12 which is greater than 10 authorized.",
@@ -304,7 +316,9 @@
       },
       "project": "org.codehaus.sonar:sonar",
       "subProject": "org.codehaus.sonar:sonar-plugin-api",
-      "rule": "squid:S1698",
+      "rule": {
+        "key": "squid:S1698"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "Change this comparison to use the equals method.",
@@ -329,7 +343,9 @@
       },
       "project": "org.codehaus.sonar:sonar",
       "subProject": "org.codehaus.sonar:sonar-plugin-api",
-      "rule": "squid:S1067",
+      "rule": {
+        "key": "squid:S1067"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "Reduce the number of conditional operators (5) used in the expression (maximum allowed 3).",
@@ -354,7 +370,9 @@
       },
       "project": "org.codehaus.sonar:sonar",
       "subProject": "org.codehaus.sonar:sonar-plugin-api",
-      "rule": "squid:MethodCyclomaticComplexity",
+      "rule": {
+        "key": "squid:MethodCyclomaticComplexity"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "The Cyclomatic Complexity of this method \"equals\" is 15 which is greater than 10 authorized.",
@@ -372,7 +390,9 @@
       "component": "org.codehaus.sonar:sonar-plugin-api:src/main/java/org/sonar/api/measures/Measure_2.java",
       "project": "org.codehaus.sonar:sonar",
       "subProject": "org.codehaus.sonar:sonar-plugin-api",
-      "rule": "squid:S1142",
+      "rule": {
+        "key": "squid:S1142"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "Reduce the number of returns of this method 6, down to the maximum allowed 5.",

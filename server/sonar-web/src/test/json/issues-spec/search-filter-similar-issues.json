@@ -80,7 +80,9 @@
         "name": "SonarQube :: Plugin API",
         "longName": "SonarQube :: Plugin API"
       },
-      "rule": "squid:S1214",
+      "rule": {
+        "key": "squid:S1214"
+      },
       "status": "CONFIRMED",
       "severity": "MAJOR",
       "message": "Move constants to a class or enum.",
