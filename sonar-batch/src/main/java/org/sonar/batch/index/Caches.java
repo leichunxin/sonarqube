@@ -37,7 +37,7 @@ import org.sonar.api.batch.BatchSide;
 
 @BatchSide
 public class Caches implements Startable {
-  private final Map<String, Exchange> caches = Maps.newHashMap();
+  private final Map<String, Exchange> cacheMap = Maps.newHashMap();
   private Persistit persistit;
   private Volume volume;
 
@@ -63,12 +63,12 @@ public class Caches implements Startable {
 
   public <V> Cache<V> createCache(String cacheName) {
     Preconditions.checkState(volume != null && volume.isOpened(), "Caches are not initialized");
-    Preconditions.checkState(!caches.containsKey(cacheName), "Cache is already created: " + cacheName);
+    Preconditions.checkState(!cacheMap.containsKey(cacheName), "Cache is already created: " + cacheName);
     try {
       Exchange exchange = persistit.getExchange(volume, cacheName, true);
       exchange.setMaximumValueSize(Value.MAXIMUM_SIZE);
       Cache<V> cache = new Cache<>(cacheName, exchange);
-      caches.put(cacheName, exchange);
+      cacheMap.put(cacheName, exchange);
       return cache;
     } catch (Exception e) {
       throw new IllegalStateException("Fail to create cache: " + cacheName, e);
@@ -77,11 +77,11 @@ public class Caches implements Startable {
 
   @Override
   public void stop() {
-    for (Entry<String, Exchange> e : caches.entrySet()) {
+    for (Entry<String, Exchange> e : cacheMap.entrySet()) {
       persistit.releaseExchange(e.getValue());
     }
 
-    caches.clear();
+    cacheMap.clear();
 
     if (volume != null) {
       try {
